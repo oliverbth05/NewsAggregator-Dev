@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 const Nav = (props) => {
 
@@ -9,11 +10,18 @@ const Nav = (props) => {
     return(
         <div className = 'nav'>
 
-        <button className = 'refresh' ><i class="fas fa-sync-alt"></i></button>
+
         <h1 className = 'nav-heading'>
-        <i className="far fa-newspaper"></i> News Aggregator
-        <span class = 'small'>Powered by News API</span>
+            <i className="far fa-newspaper"></i> News Aggregator
+            <span class = 'small'>Powered by News API</span>
         </h1>
+        
+        <div className = 'nav-links'>
+            <NavLink className = 'nav-link' to = '/home'>Home</NavLink>
+            <NavLink className = 'nav-link' to = '/topics'>Topics</NavLink>
+            <NavLink className = 'nav-link' to = '/about'>About</NavLink>
+        </div>
+        
 
         <form onSubmit = {props.searchArticles} className = 'search-container'>
             <input onChange = {props.searchQueryHandler} placeholder = 'Search Keywords' />
@@ -25,8 +33,8 @@ const Nav = (props) => {
         </button>
 
         <div className = {navDrawerClass.join(' ')} >
-            <form onSubmit = {props.searchArticles} className = 'search-container-sm'>
-                <input onChange = {props.searchQueryHandler} placeholder = 'Search Keywords' />
+            <form  className = 'search-container-sm'>
+                <input placeholder = 'Search Keywords' />
                 <button type = 'submit'> <i class="fas fa-search"></i></button>
             </form>
         </div>

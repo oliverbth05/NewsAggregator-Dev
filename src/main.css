@@ -84,8 +84,21 @@ h1 {
     color: white;
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: 2fr 5fr 2fr;
+    grid-template-columns: 4fr 3fr 4fr;
     z-index: 5;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: lighter;
 }
 
 .nav-heading {
@@ -103,34 +116,9 @@ h1 {
     color: rgb(190, 190, 190);
     text-transform: none;
 }
-.nav-search {
 
-}
 
-.refresh {
-    border: none;
-    outline: none;
-    border: 2px solid white;
-    background: inherit;
-    height: 50px;
-    width: 50px;
-    margin-top: 15px;
-    margin-left: 55px;
-    font-size: 30px;
-    border-radius: 50px;
-    color: white;
-    transition: all .2s;
-    cursor: pointer;
-}
 
-.refresh:hover {
-    color: rgb(66, 244, 235);
-    border-color: rgb(66, 244, 235);
-}
-
-.refresh-spinning {
-    animation: spin .8s infinite linear;
-}
 
 .loading {
     position: fixed;

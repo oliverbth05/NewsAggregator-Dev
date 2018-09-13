@@ -44,44 +44,11 @@ class App extends Component {
     })
   }
 
-
-
-  
-
-  searchArticles(e) {
-    e.preventDefault();
-
-    this.setState({
-      loading:true
-    })
-
-    axios.get('https://newsapi.org/v2/everything?' +
-    'q=' + this.state.searchQuery + '&' +
-    'pageSize=100&' +
-    'apiKey=be30cb8ae9f64953b5b256a3c8b4df07')
-    .then((response) => {
-      this.setState({
-        loading: false,
-        articles: response.data.articles,
-      
-      })
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-
-
-  }
-
   componentWillMount() {
-
     window.addEventListener('resize', this.updateWidth.bind(this))
-
   }
   
   render() {
-
-   
 
     return (
       <BrowserRouter>
