@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 
 import {BrowserRouter, Route, NavLink} from 'react-router-dom';
@@ -17,10 +18,7 @@ class App extends Component {
     super();
 
     this.state = {
-      articles: [],
-      loading: true,
       windowWidth: window.innerWidth,
-      searchQuery: null,
       showDrawer: false
     }
 
@@ -53,7 +51,7 @@ class App extends Component {
     return (
       <BrowserRouter>
       <div className="App">
-        <Nav toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} loading = {this.state.loading} />
+        <Nav toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
         <Route path = '/home' component = {Home} />
       
       </div>
@@ -62,4 +60,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    articles: state.articles,
+    loading: state.loading
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

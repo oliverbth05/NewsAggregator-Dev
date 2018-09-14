@@ -3,40 +3,32 @@ import Spinner from '../components/Spinner';
 import Article from '../components/Article';
 import moment from 'moment';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { loadArticlesAsync } from '../store/actions';
 
 class Home extends Component {
 
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
-        this.state = {
-            articles: [],
-            loading: true
-        }
+
     }
 
     
 
-    componentWillMount(){
-        axios.get('https://newsapi.org/v2/top-headlines?' +
+    componentDidMount(){
+        var url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
-        'apiKey=be30cb8ae9f64953b5b256a3c8b4df07')
-        .then((response) => {
-            this.setState({
-                loading: false,
-                articles: response.data.articles,
-            })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+        'apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
+
+        this.props.loadArticles(url)
     }
     
 
     render() {
 
-        var articlesMapped = this.state.articles.map(article => {
+        var articlesMapped = this.props.articles.map(article => {
             return ( 
                 <Article link = {article.url} date = {new moment(article.publishedAt).format('M-DD-YY HH:MM ')} source = {article.source.name} img = {article.urlToImage } title = {article.title} description = {article.description} />
             )
@@ -45,16 +37,32 @@ class Home extends Component {
 
     return (
         <div>
-        { this.state.loading ?
-            <Spinner />  
-        :
+            { this.props.loading ? 
+                <Spinner />
+            :
+       
+
             <ul className = 'article-container'>
                 {articlesMapped}
             </ul>
-        }
+             }
+        
         </div>
     )
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+      articles: state.articles,
+      loading: state.loading
+    }
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      loadArticles: (endPoint) => { dispatch(loadArticlesAsync(endPoint))}
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Home);
