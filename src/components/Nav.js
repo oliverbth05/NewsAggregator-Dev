@@ -3,9 +3,9 @@ import {NavLink} from 'react-router-dom';
 
 const Nav = (props) => {
 
-   
-
-    var navDrawerClass = [props.showDrawer ? 'nav-drawer-show' : 'nav-drawer-hide', 'nav-drawer'];
+    var styleNav = {fontWeight: 'bold', borderBottom: '1px solid rgb(80, 80, 80)'};
+    var styleDrawer = {background: 'rgb(80, 80, 80)', color: 'white'}
+    var navDrawerClass = [props.showDrawer === true ? 'nav-drawer-show' : 'nav-drawer-hide', 'nav-drawer'];
 
     return(
         <div className = 'nav'>
@@ -17,9 +17,9 @@ const Nav = (props) => {
         </h1>
         
         <div className = 'nav-links'>
-            <NavLink className = 'nav-link' to = '/home'>Home</NavLink>
-            <NavLink className = 'nav-link' to = '/topics'>Topics</NavLink>
-            <NavLink className = 'nav-link' to = '/about'>About</NavLink>
+            <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/home'>Home</NavLink>
+            <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/topics'>Topics</NavLink>
+            <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/about'>About</NavLink>
         </div>
         
 
@@ -37,6 +37,12 @@ const Nav = (props) => {
                 <input placeholder = 'Search Keywords' />
                 <button type = 'submit'> <i class="fas fa-search"></i></button>
             </form>
+
+            <div className = 'drawer-links'>
+                <NavLink onClick = { () => {props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/home'>Home</NavLink>
+                <NavLink onClick = { () => {props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/topics'>Topics</NavLink>
+                <NavLink onClick = { () => {props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/about'>About</NavLink>
+            </div>
         </div>
 
         </div>

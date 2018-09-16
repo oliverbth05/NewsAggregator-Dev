@@ -8,14 +8,9 @@ import { loadArticlesAsync } from '../store/actions';
 
 class Home extends Component {
 
-
     constructor(props){
         super(props);
-
-
     }
-
-    
 
     componentDidMount(){
         var url = 'https://newsapi.org/v2/top-headlines?' +
@@ -25,28 +20,26 @@ class Home extends Component {
         this.props.loadArticles(url)
     }
     
-
     render() {
-
         var articlesMapped = this.props.articles.map(article => {
+
+          var date = new moment(article.publishedAt).format('MM-DD-YYYY')
+                        
             return ( 
-                <Article link = {article.url} date = {new moment(article.publishedAt).format('M-DD-YY HH:MM ')} source = {article.source.name} img = {article.urlToImage } title = {article.title} description = {article.description} />
+                <Article date = {date} link = {article.url} source = {article.source.name} img = {article.urlToImage } title = {article.title} description = {article.description} />
             )
         })
 
-
     return (
-        <div>
+        <div className = 'page-container'>
+            <h1 className = 'heading'>Showing results for: Top Headlines</h1>
             { this.props.loading ? 
                 <Spinner />
             :
-       
-
             <ul className = 'article-container'>
                 {articlesMapped}
             </ul>
-             }
-        
+            }
         </div>
     )
   }
