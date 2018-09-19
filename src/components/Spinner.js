@@ -1,9 +1,19 @@
 import React from 'react'
 
-const Spinner = () => {
+const Spinner = (props) => {
   return (
+    <div>
+    {props.error === null ?
+    
     <div className = 'loading'>
-        <div class = 'loader'></div>
+        <div className = 'loader'></div>
+    </div>
+    
+    : 
+    
+    <div className = 'server-error' >{props.error} <span><i class="fas fa-exclamation-circle"></i></span></div>
+    }
+    
     </div>
   )
 }

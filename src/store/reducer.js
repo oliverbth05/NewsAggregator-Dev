@@ -1,5 +1,6 @@
 const initialState = {
-    articles: []
+    articles: [],
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -15,7 +16,14 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true
-            }    
+            }
+        
+        case 'SERVER_ERROR' :
+            return {
+                ...state,
+                error: action.payload.toString()
+            }
+        
 
     }
 

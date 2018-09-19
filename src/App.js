@@ -3,15 +3,17 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 
-import {BrowserRouter, Route, NavLink} from 'react-router-dom';
+import {Redirect, BrowserRouter, Route, NavLink} from 'react-router-dom';
 
 
 import Nav from './components/Nav';
 import Spinner from './components/Spinner';
 
 import Home from './pages/Home';
+import Search from './pages/Search';
 
 import './main.css';
+
 class App extends Component {
   
   constructor() {
@@ -19,11 +21,12 @@ class App extends Component {
 
     this.state = {
       windowWidth: window.innerWidth,
-      showDrawer: false
+      showDrawer: false,
+      searchKeyword: ''
     }
 
   }
-
+  
   async updateWidth(){ //Monitors window width and minimizes drawer at > 900px
     await this.setState({
       windowWidth: window.innerWidth
@@ -44,17 +47,21 @@ class App extends Component {
 
   componentWillMount() {
     window.addEventListener('resize', this.updateWidth.bind(this))
+    
+  }
+  
+  componentDidMount() {
+    
   }
   
   render() {
-
     return (
       <BrowserRouter>
-      <div className="App">
-        <Nav toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
-        <Route path = '/home' component = {Home} />
-      
-      </div>
+        <div className="App">
+          <Nav toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
+          <Route path = '/home' component = {Home} />
+          <Route path = '/search/:id' component = {Search} />
+        </div>
       </BrowserRouter>
     );
   }
@@ -63,7 +70,9 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     articles: state.articles,
-    loading: state.loading
+    loading: state.loading,
+    redirect: state.redirect,
+    searchKeyword: state.searchKeyword
   }
 }
 

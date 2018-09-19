@@ -8,6 +8,9 @@ export const loadArticlesAsync = (endPoint) => {
         .then(response => {
             dispatch(loadArticles(response.data.articles))
         })
+        .catch(response => {
+            dispatch(serverError(response))
+        })
     }
 }
 
@@ -21,5 +24,12 @@ const loadArticles = (articles) => {
 const loading = () => {
     return {
         type: 'LOADING'
+    }
+}
+
+const serverError = (error) => {
+    return {
+        type: 'SERVER_ERROR',
+        payload: error
     }
 }

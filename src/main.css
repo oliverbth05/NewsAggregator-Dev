@@ -162,6 +162,24 @@
     margin-top: -4.05em;
 }
 
+.server-error {
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 5px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.server-error span {
+    display: block;
+    padding: 30px;
+    font-size: 45px;
+    color: red;
+}
+
 .search-container {
     display: flex;
     justify-content: center;

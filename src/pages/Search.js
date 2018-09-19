@@ -6,23 +6,26 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadArticlesAsync } from '../store/actions';
 
-class Home extends Component {
+class Search extends Component {
 
     constructor(props){
         super(props);
     }
-    
-
 
     componentDidMount(){
-        var url = 'https://newsapi.org/v2/top-headlines?' +
-        'country=us&' +
-        'apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
-
-        this.props.loadArticles(url)
-       
-        
+        var url = 'https://newsapi.org/v2/top-headlines?q=' + this.props.match.params.id + '&apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
+        this.props.loadArticles(url);
     }
+    
+    
+    
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            var url = 'https://newsapi.org/v2/top-headlines?q=' + this.props.match.params.id + '&apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
+            this.props.loadArticles(url);
+        }
+    }
+
     
     render() {
         var articlesMapped = this.props.articles.map(article => {
@@ -36,7 +39,7 @@ class Home extends Component {
 
     return (
         <div className = 'page-container'>
-            <h1 className = 'heading'>Showing results for: Top Headlines</h1>
+            <h1 className = 'heading'>Showing results for: {this.props.match.params.id}</h1>
             { this.props.loading ? 
                 <Spinner error = {this.props.error} />
             :
@@ -63,4 +66,4 @@ const mapStateToProps = (state) => {
     }
   }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Home);
+  export default connect(mapStateToProps, mapDispatchToProps)(Search);
