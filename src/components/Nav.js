@@ -18,7 +18,8 @@ class Nav extends Component {
     
     searchSubmit(e){
         e.preventDefault();
-        this.props.history.push('/search/' + this.state.searchField)
+        this.props.toggleDrawer();
+        this.props.history.push('/search/' + this.state.searchField);
     }
     
     render() {
