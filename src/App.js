@@ -45,6 +45,12 @@ class App extends Component {
     })
   }
 
+  closeDrawer() {
+    this.setState({
+      showDrawer: false
+    })
+  }
+
   componentWillMount() {
     window.addEventListener('resize', this.updateWidth.bind(this))
     
@@ -58,7 +64,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Nav toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
+          <Nav closeDrawer = {this.closeDrawer.bind(this)} toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
           <Route path = '/home' component = {Home} />
           <Route path = '/search/:id' component = {Search} />
         </div>

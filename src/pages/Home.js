@@ -17,6 +17,8 @@ class Home extends Component {
     componentDidMount(){
         var url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
+        'sortBy=popularity&' +
+        'pageSize=20&' +
         'apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
 
         this.props.loadArticles(url)
@@ -36,7 +38,7 @@ class Home extends Component {
 
     return (
         <div className = 'page-container'>
-            <h1 className = 'heading'>Showing results for: Top Headlines</h1>
+            <h1 className = 'heading'>Showing {this.props.articles.length} results for: Top Headlines</h1>
             { this.props.loading ? 
                 <Spinner error = {this.props.error} />
             :

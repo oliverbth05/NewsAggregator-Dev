@@ -18,7 +18,7 @@ class Nav extends Component {
     
     searchSubmit(e){
         e.preventDefault();
-        this.props.toggleDrawer();
+        this.props.closeDrawer();
         this.props.history.push('/search/' + this.state.searchField);
     }
     
@@ -38,7 +38,9 @@ class Nav extends Component {
             
             <div className = 'nav-links'>
                 <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/home'>Home</NavLink>
-                <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/topics'>Topics</NavLink>
+                <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/advanced'>Advanced Search</NavLink>
+                <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/categories'>Categories</NavLink>
+                <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/sources'>Sources</NavLink>
                 <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/about'>About</NavLink>
             </div>
             
@@ -60,7 +62,9 @@ class Nav extends Component {
     
                 <div className = 'drawer-links'>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/home'>Home</NavLink>
-                    <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/topics'>Topics</NavLink>
+                    <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/advanced'>Advanced Search</NavLink>
+                    <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/categories'>Categories</NavLink>
+                    <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/sources'>Sources</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/about'>About</NavLink>
                 </div>
             </div>

@@ -6,6 +6,7 @@ export const loadArticlesAsync = (endPoint) => {
 
         axios.get(endPoint)
         .then(response => {
+            console.log(response)
             dispatch(loadArticles(response.data.articles))
         })
         .catch(response => {
