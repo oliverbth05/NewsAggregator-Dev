@@ -1,0 +1,114 @@
+.search-form {
+    margin: auto;
+    border: 1px solid rgb(200, 200, 200);
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 5px;
+    margin-top: 120px;
+    margin-bottom: 20px;
+}
+
+.search-form-section {
+    padding: 13px;
+}
+
+
+.search-form-input {
+    height: 34px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(200, 200, 200);
+    transition: all .2s;
+    outline: none;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.search-form-input:focus {
+    border: 2px solid rgb(51, 153, 255);
+   
+}
+
+.search-form-section select {
+    height: 34px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(200, 200, 200);
+    transition: all .2s;
+    outline: none;
+    padding: 0px;
+    font-size: 17px;
+}
+
+.search-form-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18.5px;
+}
+
+.date-label {
+  text-align: center;
+}
+
+.search-form-radio {
+    margin: 10px;
+    display: inline-block;
+}
+
+.search-form-section button {
+    display: block;
+    outline: none;
+    border: 1px solid rgb(50, 50, 50);
+    background: inherit;
+    height:40px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(50, 50, 50);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.search-form-section button:hover {
+    color: white;
+    background: rgb(51, 153, 255);
+    border-color: rgb(51, 153, 255);
+}
+
+
+.search-form-section-date{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.search-form-section-date input{
+    height: 34px;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgb(200, 200, 200);
+    transition: all .2s;
+    outline: none;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.section {
+    margin: 5px 20px 0px 0;
+}
+
+.search-error {
+    color: red;
+    border-bottom: 2px solid red;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+}
+
+@media only screen and (max-width: 850px) {
+    .search-form {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}

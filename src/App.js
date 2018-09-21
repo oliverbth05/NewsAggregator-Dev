@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
-
-import {Redirect, BrowserRouter, Route, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 
 import Nav from './components/Nav';
-import Spinner from './components/Spinner';
+
 
 import Home from './pages/Home';
 import Search from './pages/Search';
+import Categories from './pages/Categories';
+import CategoriesSearch from './pages/CategoriesSearch';
+import SearchAdvanced from './pages/SearchAdvanced';
+import Sources from './pages/Sources';
+import SourcesSearch from './pages/SourcesSearch';
 
 import './main.css';
 
@@ -26,6 +29,8 @@ class App extends Component {
     }
 
   }
+  
+
   
   async updateWidth(){ //Monitors window width and minimizes drawer at > 900px
     await this.setState({
@@ -67,6 +72,11 @@ class App extends Component {
           <Nav closeDrawer = {this.closeDrawer.bind(this)} toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
           <Route path = '/home' component = {Home} />
           <Route path = '/search/:id' component = {Search} />
+          <Route path = '/advanced' component = {SearchAdvanced} />
+          <Route exact path = '/categories' component = {Categories} />
+          <Route path = '/categories/:id' component = {CategoriesSearch} />
+          <Route exact path = '/sources' component = {Sources} />
+          <Route path = '/sources/:id' component = {SourcesSearch} />
         </div>
       </BrowserRouter>
     );

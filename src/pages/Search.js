@@ -14,7 +14,7 @@ class Search extends Component {
 
     componentDidMount(){
         var url = 
-        'https://newsapi.org/v2/top-headlines?q=' + this.props.match.params.id + 
+        'https://newsapi.org/v2/everything?q=' + this.props.match.params.id + 
         '&sortBy=relevancy' +
         '&apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
         this.props.loadArticles(url);
@@ -42,7 +42,7 @@ class Search extends Component {
 
     return (
         <div className = 'page-container'>
-            <h1 className = 'heading'>Showing  {this.props.articles.length} results for: {this.props.match.params.id}</h1>
+            <h1 className = 'article-results'>Showing  {this.props.articles.length} results for: {this.props.match.params.id}</h1>
             { this.props.loading ? 
                 <Spinner error = {this.props.error} />
             :

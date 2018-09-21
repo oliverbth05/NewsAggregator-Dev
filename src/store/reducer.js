@@ -1,11 +1,28 @@
 const initialState = {
     articles: [],
-    error: null
+    searchArticles: [],
+    error: null,
+    sources: []
 }
 
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
+        
+        
+        case 'LOAD_SOURCES' :
+            return {
+                ...state,
+                sources: action.payload
+            }
+        
+        case 'LOAD_SEARCH_ARTICLES' :
+            return {
+                ...state,
+                searchArticles: action.payload,
+                loading: false
+            }
+        
         case 'LOAD_ARTICLES' :
             return {
                 ...state,

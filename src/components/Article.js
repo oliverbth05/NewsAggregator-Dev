@@ -1,9 +1,11 @@
 import React from 'react';
 import Moment from 'moment';
+import './article.css';
 
 const Article = (props) => {
     return (
-        <li className = 'article'>
+        <li>
+            <a href = {props.link} className = 'article'>
             <img alt = '' className = 'article-image' src = {props.img} />
 
             <a href = {props.link} className = 'article-headline'>
@@ -21,7 +23,7 @@ const Article = (props) => {
             <p className = 'article-date'>
             {props.date}
             </p>
-
+            </a>
            
 
             

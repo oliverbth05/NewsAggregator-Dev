@@ -6,27 +6,29 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { loadArticlesAsync } from '../store/actions';
 
-class Home extends Component {
+class CategoriesSearch extends Component {
 
     constructor(props){
         super(props);
     }
-    
-
 
     componentDidMount(){
-        var url = 'https://newsapi.org/v2/top-headlines?' +
-        'country=us&' +
-        'sortBy=popularity&' +
-        'pageSize=20&' +
-        'apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
-
-        this.props.loadArticles(url)
-       
-        
+        var url = 
+        'https://newsapi.org/v2/top-headlines?category=' + this.props.match.params.id + 
+        '&language=en' +
+        '&apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
+        this.props.loadArticles(url);
     }
     
+
+
+    
     render() {
+        
+        function capitalize(str) {
+            return str[0].toUpperCase() + str.slice(1)
+        }
+        
         var articlesMapped = this.props.articles.map(article => {
 
           var date = new moment(article.publishedAt).format('MM-DD-YYYY')
@@ -38,7 +40,7 @@ class Home extends Component {
 
     return (
         <div className = 'page-container'>
-            <h1 className = 'article-results'>Showing {this.props.articles.length} results for: Top Headlines</h1>
+            <h1 className = 'heading'>Showing  {this.props.articles.length} results for: {capitalize(this.props.match.params.id)}</h1>
             { this.props.loading ? 
                 <Spinner error = {this.props.error} />
             :
@@ -65,4 +67,4 @@ const mapStateToProps = (state) => {
     }
   }
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Home);
+  export default connect(mapStateToProps, mapDispatchToProps)(CategoriesSearch);

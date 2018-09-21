@@ -1,0 +1,86 @@
+.article-container {
+    width: 100%;
+    list-style-type: none;
+  
+}
+
+.article {
+    display: block;
+    box-shadow: 6px 6px 13px 0px rgba(0,0,0,0.16);
+    border-radius: 5px;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 30px;
+    transition: box-shadow .2s;
+    text-decoration: none;
+    color: black;
+}
+
+.article:hover {
+    box-shadow: 6px 11px 29px 0px rgba(0,0,0,0.16);
+   
+}
+
+.article-headline {
+    text-decoration: none;
+    color: black;
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    padding: 20px 20px 10px 20px;
+}
+
+.article-headline:hover {
+    color: purple;
+}
+
+.article-headline:visited {
+    text-decoration: underline;
+    color: purple;
+}
+
+.article-description {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 0px 20px 0px 20px;
+
+}
+
+.article-image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    border-radius: 4px 4px 0 0;
+}
+
+.article-source {
+    color: rgb(140, 140, 140);
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+}
+
+.article-date {
+    color: rgb(140, 140, 140);
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+    float: right;
+}
+
+
+@media only screen and (max-width: 450px) {
+    .article{
+        margin-bottom: 0;
+        box-shadow: none;
+        border-bottom: 1px solid rgb(150, 150, 150);
+        border-radius: 0;
+    }
+    
+    .article:hover{
+        box-shadow: none;
+    }
+    
+    .article-image{
+        display: none;
+    }
+}

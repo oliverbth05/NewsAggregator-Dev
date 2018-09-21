@@ -1,0 +1,234 @@
+.nav {
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    background: rgb(230, 230, 230);
+    color: rgb(50, 50, 50);
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 4fr 3fr;
+    z-index: 5;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav-link {
+    color: rgb(50, 50, 50);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: lighter;
+    border-bottom: 1px solid rgb(230, 230, 230);
+    transition: all .2s; 
+    padding: 10px;
+}
+
+.nav-link:hover {
+    
+    border-bottom: 1px solid rgb(80, 80, 80)
+}
+
+.nav-heading {
+    font-family: 'Merriweather', serif;
+    display: block;
+    padding-top: 17px;
+    font-weight: normal;
+    letter-spacing: .9px;
+    text-align: center;
+    font-size: 23px;
+}
+
+.small {
+    display: block;
+    font-size: 10px;
+    color: rgb(80, 80, 80);
+    text-transform: none;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 16.5px;
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    border: 2px solid white ;
+    outline: none;
+    margin-right: 10px;
+    transition: all .3s;
+}
+
+.search-container input:focus {
+    border: 2px solid rgb(51, 153, 255);
+}
+
+.search-container button {
+    outline: none;
+    border: 1px solid rgb(50, 50, 50);
+    background: inherit;
+    height:30px;
+    width: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: rgb(50, 50, 50);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    color: white;
+    background: rgb(51, 153, 255);
+    border-color: rgb(51, 153, 255);
+}
+
+.mobile-btn {
+    background: inherit;
+    outline: none;
+    color: rgb(50, 50, 50);
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    border-radius: 24px;
+    position: fixed;
+    right: 5%;
+    top: 22px;
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-btn:hover {
+     font-size: 25px;
+}
+
+.nav-drawer {
+    transition: all .2s;
+    transition-timing-function: ease-out;
+    top: 80px;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: rgb(240, 240, 240);
+    z-index: -4;
+    border-top: 1px solid rgb(150, 150, 150);
+
+}
+.nav-drawer-show {
+    transform: translateX(0px);
+    display: block;
+  
+}
+
+.nav-drawer-hide {
+    transform: translateX(-1150px);
+    display: none;
+    
+}
+
+.search-container-sm {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.search-container-sm input {
+    height: 30px;
+    width: 100%;
+    color: rgb(80, 80, 80);
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 2px solid rgb(220, 220, 220) ;
+    outline: none;
+    margin-bottom: 10px;
+    transition: all .2s;
+    text-align: center;
+}
+
+.search-container-sm input:focus{
+    border: 2px solid rgb(51, 153, 255);
+}
+
+.search-container-sm button {
+    display: block;
+    outline: none;
+    border: 1px solid rgb(50, 50, 50);
+    background: inherit;
+    height:35px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 20px;
+    color: rgb(50, 50, 50);
+    transition: all .2s;
+    cursor: pointer;
+}
+
+.search-container-sm button:hover {
+    color: white;
+    background: rgb(51, 153, 255);
+    border-color: rgb(51, 153, 255);
+}
+
+.drawer-links {
+    display: block;
+    padding: 30px;
+}
+
+.drawer-link {
+    color: rgb(80, 80, 80);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 4px;
+    margin: 5px;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.drawer-link:hover {
+    background: rgb(80, 80, 80);
+    color: white;
+
+}
+
+@media only screen and (max-width: 1050px) {
+    .heading {
+        font-size: 15px;
+    }
+    .nav {
+        grid-template-columns: 1fr;
+        
+    }
+
+    .nav-link {
+        display: none;
+    }
+
+    .search-container{
+        display: none
+    }
+
+    .nav-heading {
+        padding-top:20px;
+        font-size: 20px;
+    }
+
+    .mobile-btn {
+        display: block;
+    }
+
+    .nav-drawer {
+        display: block;
+    }
+}
