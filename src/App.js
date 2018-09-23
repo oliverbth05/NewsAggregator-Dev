@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
 import Nav from './components/Nav';
@@ -15,7 +15,7 @@ import SearchAdvanced from './pages/SearchAdvanced';
 import Sources from './pages/Sources';
 import SourcesSearch from './pages/SourcesSearch';
 import About from './pages/About';
-
+import NotFound from './components/NotFound';
 import './main.css';
 
 class App extends Component {
@@ -71,14 +71,17 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <Nav closeDrawer = {this.closeDrawer.bind(this)} toggleDrawer = {this.toggleDrawer.bind(this)}  showDrawer = {this.state.showDrawer} />
-          <Route path = '/home' component = {Home} />
-          <Route path = '/search/:id' component = {Search} />
-          <Route path = '/advanced' component = {SearchAdvanced} />
-          <Route exact path = '/categories' component = {Categories} />
-          <Route path = '/categories/:id' component = {CategoriesSearch} />
-          <Route exact path = '/sources' component = {Sources} />
-          <Route path = '/sources/:id' component = {SourcesSearch} />
-          <Route path = '/about' component = {About} />
+          <Switch>
+            <Route exact path = '/' component = {Home} />
+            <Route exact path = '/search/:id' component = {Search} />
+            <Route exact path = '/advanced' component = {SearchAdvanced} />
+            <Route exact path = '/categories' component = {Categories} />
+            <Route exact path = '/categories/:id' component = {CategoriesSearch} />
+            <Route exact path = '/sources' component = {Sources} />
+            <Route exact path = '/sources/:id' component = {SourcesSearch} />
+            <Route exact path = '/about' component = {About} />
+            <Route component = {NotFound} />
+          </Switch>
         </div>
       </BrowserRouter>
     );

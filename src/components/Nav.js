@@ -37,7 +37,7 @@ class Nav extends Component {
             </h1>
             
             <div className = 'nav-links'>
-                <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/home'>Home</NavLink>
+                <NavLink exact activeStyle = {styleNav} className = 'nav-link' to = '/'>Home</NavLink>
                 <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/advanced'>Advanced Search</NavLink>
                 <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/categories'>Categories</NavLink>
                 <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/sources'>Sources</NavLink>
@@ -62,7 +62,7 @@ class Nav extends Component {
                 </form>
                 
                 <div className = 'drawer-links'>
-                    <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/home'>Home</NavLink>
+                    <NavLink exact onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/'>Home</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/advanced'>Advanced Search</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/categories'>Categories</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/sources'>Sources</NavLink>
