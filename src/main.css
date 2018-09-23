@@ -47,16 +47,16 @@
     font-size: 17px;
     padding: 10px;
     text-align: center;
-    background: rgb(240, 240, 240);
-    border: 1px solid rgb(140, 140, 140);
     border-radius: 3px;
     max-width: 700px;
     margin: auto;
     margin-top: 90px;
     font-weight: normal;
     margin-bottom: 10px;
+    color: rgb(100, 100, 100);
     
 }
+
 
 
 @keyframes spin {
@@ -88,5 +88,10 @@
     .heading {
         font-size: 12px;
         padding: 0px;
+    }
+    
+    .article-results {
+        font-size: 10px;
+      
     }
 }

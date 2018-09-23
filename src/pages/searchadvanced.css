@@ -80,7 +80,7 @@
 .search-form-section-date{
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
 }
 
 .search-form-section-date input{
@@ -96,6 +96,7 @@
 
 .section {
     margin: 5px 20px 0px 0;
+    width: 100%;
 }
 
 .search-error {
@@ -110,5 +111,11 @@
     .search-form {
         margin-bottom: 0;
         margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .search-form-section-date {
+        flex-flow: row wrap;
     }
 }

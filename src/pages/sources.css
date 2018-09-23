@@ -36,6 +36,7 @@
 }
 
 .source-search{
+    margin-top: 30px;
 }
 
 .source-search input {
@@ -63,10 +64,11 @@
 
 .filter-item {
     font-size: 22px;
-    text-align: center;
-    padding: 15px;
+
+
     border-bottom: 1px solid rgb(200, 200, 200);
     cursor: pointer;
+    background: rgb(250, 250, 250);
 }
 
 .filter-item:hover {
@@ -74,8 +76,12 @@
 }
 
 .filter-link {
+    display: block;
+    padding: 15px;
     color: black;
     text-decoration: none;
+    width: 100%;
+    text-align: center;
 }
 
 @media only screen and (max-width: 850px) {
@@ -104,6 +110,9 @@
         
     }
     
+    .source-search {
+        margin-top: 60px;
+    }
 }
 
 @media only screen and (max-width: 400px) {

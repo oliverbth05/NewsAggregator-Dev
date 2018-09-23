@@ -14,6 +14,7 @@ import CategoriesSearch from './pages/CategoriesSearch';
 import SearchAdvanced from './pages/SearchAdvanced';
 import Sources from './pages/Sources';
 import SourcesSearch from './pages/SourcesSearch';
+import About from './pages/About';
 
 import './main.css';
 
@@ -77,6 +78,7 @@ class App extends Component {
           <Route path = '/categories/:id' component = {CategoriesSearch} />
           <Route exact path = '/sources' component = {Sources} />
           <Route path = '/sources/:id' component = {SourcesSearch} />
+          <Route path = '/about' component = {About} />
         </div>
       </BrowserRouter>
     );

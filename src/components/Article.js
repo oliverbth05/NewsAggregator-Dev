@@ -8,9 +8,9 @@ const Article = (props) => {
             <a href = {props.link} className = 'article'>
             <img alt = '' className = 'article-image' src = {props.img} />
 
-            <a href = {props.link} className = 'article-headline'>
+            <p href = {props.link} className = 'article-headline'>
             {props.title}
-            </a>
+            </p>
 
             <p className = 'article-description'>
             {props.description}

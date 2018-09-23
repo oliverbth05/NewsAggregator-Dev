@@ -40,7 +40,7 @@ class CategoriesSearch extends Component {
 
     return (
         <div className = 'page-container'>
-            <h1 className = 'heading'>Showing  {this.props.articles.length} results for: {capitalize(this.props.match.params.id)}</h1>
+            <h1 className = 'article-results'>Showing  {this.props.articles.length} results for: {capitalize(this.props.match.params.id)}</h1>
             { this.props.loading ? 
                 <Spinner error = {this.props.error} />
             :

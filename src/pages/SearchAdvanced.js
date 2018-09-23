@@ -152,6 +152,7 @@ class SearchAdvanced extends Component { //Fields: from/to, language, sortby, q,
                         <Spinner error = {this.props.error} />
                     :
                         <div>
+                        
                             <h1 className = 'article-results'>Showing {this.props.articles.length} results for: {this.state.searchTerm}</h1>
                             <ul className = 'article-container'>
                                 {articlesMapped}

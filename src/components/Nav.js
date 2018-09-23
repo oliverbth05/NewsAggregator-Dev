@@ -24,7 +24,7 @@ class Nav extends Component {
     
     render() {
         var styleNav = {fontWeight: 'bold', borderBottom: '1px solid rgb(80, 80, 80)'};
-        var styleDrawer = {background: 'rgb(80, 80, 80)', color: 'white'}
+        var styleDrawer = {background: 'rgb(50, 50, 50)', color: 'white'}
         var navDrawerClass = [this.props.showDrawer === true ? 'nav-drawer-show' : 'nav-drawer-hide', 'nav-drawer'];
         
         return(
@@ -55,11 +55,12 @@ class Nav extends Component {
             </button>
     
             <div className = {navDrawerClass.join(' ')} >
+              
                 <form  className = 'search-container-sm' onSubmit = {this.searchSubmit.bind(this)} >
                     <input placeholder = 'Search Keywords' onChange = {this.searchFieldHandler.bind(this)} />
                     <button type = 'submit'> <i className="fas fa-search"></i></button>
                 </form>
-    
+                
                 <div className = 'drawer-links'>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/home'>Home</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/advanced'>Advanced Search</NavLink>
@@ -67,6 +68,8 @@ class Nav extends Component {
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/sources'>Sources</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/about'>About</NavLink>
                 </div>
+                
+                
             </div>
     
             </div>
