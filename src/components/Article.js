@@ -6,30 +6,24 @@ const Article = (props) => {
     return (
         <li>
             <a href = {props.link} className = 'article'>
-            <img alt = '' className = 'article-image' src = {props.img} />
-
-            <p href = {props.link} className = 'article-headline'>
-            {props.title}
-            </p>
-
-            <p className = 'article-description'>
-            {props.description}
-            </p>
-
-            <p className = 'article-source'>
-            {props.source}
-            </p>
-
-            <p className = 'article-date'>
-            {props.date}
-            </p>
+                <img alt = '' className = 'article-image' src = {props.img} />
+    
+                <p href = {props.link} className = 'article-headline'>
+                {props.title}
+                </p>
+    
+                <p className = 'article-description'>
+                {props.description}
+                </p>
+    
+                <p className = 'article-source'>
+                {props.source}
+                </p>
+    
+                <p className = 'article-date'>
+                {props.date}
+                </p>
             </a>
-           
-
-            
-
-          
-          
         </li>
     )
 }

@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 export const loadSourcesAsync = () => {
     return dispatch => {
         axios.get('https://newsapi.org/v2/sources?apiKey=be30cb8ae9f64953b5b256a3c8b4df07')
@@ -17,7 +15,6 @@ const loadSources = (sources) => {
         payload: sources
     }
 }
-
 
 export const loadSearchArticlesAsync = (endPoint) => {
     return dispatch => {

@@ -20,15 +20,12 @@ class Search extends Component {
         this.props.loadArticles(url);
     }
     
-    
-    
     componentDidUpdate(prevProps) {
         if (prevProps.match.params.id !== this.props.match.params.id) {
             var url = 'https://newsapi.org/v2/top-headlines?q=' + this.props.match.params.id + '&apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
             this.props.loadArticles(url);
         }
     }
-
     
     render() {
         var articlesMapped = this.props.articles.map(article => {

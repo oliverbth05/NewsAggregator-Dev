@@ -9,7 +9,6 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         
-        
         case 'LOAD_SOURCES' :
             return {
                 ...state,
@@ -41,7 +40,6 @@ const reducer = (state = initialState, action) => {
                 error: action.payload.toString()
             }
         
-
     }
 
     return state

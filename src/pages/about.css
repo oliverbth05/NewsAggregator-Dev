@@ -81,4 +81,10 @@
     font-size: 40px;
     padding-bottom: 20px;
     color: black;
+    width: 50px;
+    margin: auto;
+}
+
+.about-link-icon:hover {
+    color: rgb(155, 66, 244);
 }

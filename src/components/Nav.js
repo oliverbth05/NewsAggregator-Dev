@@ -12,8 +12,6 @@ class Nav extends Component {
         this.setState({
             searchField: e.target.value
         })
-        
-       
     }
     
     searchSubmit(e){
@@ -30,7 +28,6 @@ class Nav extends Component {
         return(
             <div className = 'nav'>
     
-    
             <h1 className = 'nav-heading'>
                 <i className="far fa-newspaper"></i> News Aggregator
                 <span className = 'small'>Powered by News API</span>
@@ -44,14 +41,13 @@ class Nav extends Component {
                 <NavLink activeStyle = {styleNav} className = 'nav-link' to = '/about'>About</NavLink>
             </div>
             
-    
             <form  className = 'search-container' onSubmit = {this.searchSubmit.bind(this)} >
                 <input  placeholder = 'Search Keywords' onChange = {this.searchFieldHandler.bind(this)} />
                 <button type = 'submit'> <i className="fas fa-search"></i></button>
             </form>
     
             <button className = 'mobile-btn' onClick = { () => {this.props.toggleDrawer()}}>
-            <i className="fas fa-bars"></i>
+                <i className="fas fa-bars"></i>
             </button>
     
             <div className = {navDrawerClass.join(' ')} >
@@ -68,7 +64,6 @@ class Nav extends Component {
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/sources'>Sources</NavLink>
                     <NavLink onClick = { () => {this.props.toggleDrawer()}} activeStyle = {styleDrawer} className = 'drawer-link' to = '/about'>About</NavLink>
                 </div>
-                
                 
             </div>
     

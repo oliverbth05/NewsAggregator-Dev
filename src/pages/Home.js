@@ -12,8 +12,6 @@ class Home extends Component {
         super(props);
     }
     
-
-
     componentDidMount(){
         var url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
@@ -22,8 +20,6 @@ class Home extends Component {
         'apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
 
         this.props.loadArticles(url)
-       
-        
     }
     
     render() {

@@ -3,7 +3,7 @@ import './about.css';
 const About = () => {
     return (
         <div className = 'page-container'>
-            
+    
             <h1 className = 'about-heading'>News Aggregator</h1>
             
             <p className = 'about-body'>
@@ -35,8 +35,6 @@ const About = () => {
             </ul>
           
             <a href = 'https://github.com/oliverbth05/NewsAggregator-Dev' className = 'about-link-icon'><i className="fab fa-github"></i></a>
-            
-            
             
         </div>
         )

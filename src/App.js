@@ -5,7 +5,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 
 import Nav from './components/Nav';
-
+import NotFound from './components/NotFound';
 
 import Home from './pages/Home';
 import Search from './pages/Search';
@@ -15,7 +15,7 @@ import SearchAdvanced from './pages/SearchAdvanced';
 import Sources from './pages/Sources';
 import SourcesSearch from './pages/SourcesSearch';
 import About from './pages/About';
-import NotFound from './components/NotFound';
+
 import './main.css';
 
 class App extends Component {
@@ -28,10 +28,7 @@ class App extends Component {
       showDrawer: false,
       searchKeyword: ''
     }
-
   }
-  
-
   
   async updateWidth(){ //Monitors window width and minimizes drawer at > 900px
     await this.setState({
@@ -59,10 +56,6 @@ class App extends Component {
 
   componentWillMount() {
     window.addEventListener('resize', this.updateWidth.bind(this))
-    
-  }
-  
-  componentDidMount() {
     
   }
   
@@ -99,7 +92,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
   }
 }
 

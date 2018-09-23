@@ -20,9 +20,6 @@ class SourcesSearch extends Component {
         this.props.loadArticles(url);
     }
     
-
-
-    
     render() {
         
         function capitalize(str) {

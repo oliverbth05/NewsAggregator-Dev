@@ -94,8 +94,6 @@ class SearchAdvanced extends Component { //Fields: from/to, language, sortby, q,
             })
         }
         
-        
-        
         return (
             <div className = 'page-container'>
                 <form className = 'search-form' onSubmit = {this.formSubmitHandler.bind(this)}>

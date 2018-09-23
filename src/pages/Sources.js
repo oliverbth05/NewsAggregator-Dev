@@ -32,8 +32,6 @@ class Sources extends Component {
         })
     }
     
-    
-    
     render() {
         
         var filteredMapped;
@@ -53,7 +51,6 @@ class Sources extends Component {
         return(
             <div className = 'page-container'>
                 <h1 className = 'page-heading' >Browse the latest articles from a number of different news sources</h1>
-                
                 
                 <div className = 'source-menu'>
                 
@@ -125,14 +122,15 @@ class Sources extends Component {
                         <h2 className = 'sub-heading' >Find a Source</h2>
                         <input type = 'text' onChange = {this.searchSourceHandler.bind(this)} />
                     </div>
+                    
                     <h3 className = 'sub-heading'> {this.state.filtered ? this.state.filtered.length + ' result(s)' : null}</h3>
+                    
                     <ul className = 'source-filter'>
                     
                         {filteredMapped}
                         
                     </ul>
                     
-                   
                 </div>
             </div>
         )

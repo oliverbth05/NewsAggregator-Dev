@@ -20,9 +20,6 @@ class CategoriesSearch extends Component {
         this.props.loadArticles(url);
     }
     
-
-
-    
     render() {
         
         function capitalize(str) {
