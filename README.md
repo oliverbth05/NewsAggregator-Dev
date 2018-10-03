@@ -1,5 +1,5 @@
 ## News Aggregator
-A basic news aggregation web app using the News API backend.
+A single page news aggregation web app using the News API backend. Provides up to date news snippets from numerous sources. Includes search functionality with multiple parameters.
 
 ### Packages Used
 
