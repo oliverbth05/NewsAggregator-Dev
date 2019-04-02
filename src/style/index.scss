@@ -1,0 +1,79 @@
+@import './colors.scss';
+@import './mixins.scss';
+@import './typography.scss';
+@import './helpers.scss';
+@import './layout.scss';
+@import './components/nav.scss';
+@import './components/article.scss';
+@import './components/sources.scss';
+@import './components/inputs.scss';
+@import './components/banner.scss';
+
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 55px;
+}
+
+html {
+    //The default browser font-size is 16px
+    //We want every relative unit (rem) to correspond to 10px
+    //==> Set the font-size to 62.5% of the default of 16, ===> 10px
+    font-size: 62.5%;
+
+    @include respond(huge) {
+        font-size: 100%; // 14.4px
+    }
+
+    @include respond(desktop) {
+        font-size: 95%; // 12.8px
+    }
+
+    @include respond(laptop) {
+        font-size: 85%; //12px
+    }
+
+    @include respond(tablet) {
+        font-size: 80%; //11.2px
+    }
+
+    @include respond(phone) {
+        font-size: 75%; //10px
+    }
+}
+
+.server-error {
+    font-size: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 5px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.server-error span {
+    display: block;
+    padding: 30px;
+    font-size: 45px;
+    color: red;
+}
+
+
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

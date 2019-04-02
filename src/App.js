@@ -11,12 +11,11 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Categories from './pages/Categories';
 import CategoriesSearch from './pages/CategoriesSearch';
-import SearchAdvanced from './pages/SearchAdvanced';
 import Sources from './pages/Sources';
 import SourcesSearch from './pages/SourcesSearch';
 import About from './pages/About';
 
-import './main.css';
+
 
 class App extends Component {
   
@@ -67,7 +66,6 @@ class App extends Component {
           <Switch>
             <Route exact path = '/' component = {Home} />
             <Route exact path = '/search/:id' component = {Search} />
-            <Route exact path = '/advanced' component = {SearchAdvanced} />
             <Route exact path = '/categories' component = {Categories} />
             <Route exact path = '/categories/:id' component = {CategoriesSearch} />
             <Route exact path = '/sources' component = {Sources} />

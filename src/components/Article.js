@@ -1,31 +1,20 @@
 import React from 'react';
-import Moment from 'moment';
-import './article.css';
+import moment from 'moment';
 
-const Article = (props) => {
-    return (
-        <li>
-            <a href = {props.link} className = 'article'>
-                <img alt = '' className = 'article-image' src = {props.img} />
+const Article = ({source, title, description, url, urlToImage, publishedAt}) => 
     
-                <p href = {props.link} className = 'article-headline'>
-                {props.title}
-                </p>
-    
-                <p className = 'article-description'>
-                {props.description}
-                </p>
-    
-                <p className = 'article-source'>
-                {props.source}
-                </p>
-    
-                <p className = 'article-date'>
-                {props.date}
-                </p>
-            </a>
-        </li>
-    )
-}
+    <article>
+        <a href = {url} className = 'article'>
+            <img alt = {title} className = 'article-image' src = {urlToImage} />
+            <div className = 'article__content'>
+                <h4 className = 'article-headline'>{title}</h4>
+                <p className = 'article-description p-t-1 p-b-1'>{description}</p>
+                <div className = 'article__details'>
+                    <p className = 'article-source'>{source.name}</p>
+                    <p className = 'article-date'>{ new moment(publishedAt).fromNow()}</p>
+                </div>
+            </div>
+        </a>
+    </article>
 
 export default Article;

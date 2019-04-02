@@ -1,64 +1,43 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Spinner from '../components/Spinner';
 import Article from '../components/Article';
-import moment from 'moment';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { loadArticlesAsync } from '../store/actions';
+import { fetchArticles } from '../store/actions';
 
-class Home extends Component {
+class Home extends React.Component {
 
-    constructor(props){
-        super(props);
-    }
-    
     componentDidMount(){
         var url = 'https://newsapi.org/v2/top-headlines?' +
         'country=us&' +
         'sortBy=popularity&' +
         'pageSize=20&' +
         'apiKey=be30cb8ae9f64953b5b256a3c8b4df07'
-
-        this.props.loadArticles(url)
-    }
+        this.props.fetchArticles(url)
+    } 
+    
+    renderArticles = articles => articles.map(article => <Article {...article} />)
     
     render() {
-        var articlesMapped = this.props.articles.map(article => {
-
-          var date = new moment(article.publishedAt).format('MM-DD-YYYY')
-                        
-            return ( 
-                <Article date = {date} link = {article.url} source = {article.source.name} img = {article.urlToImage } title = {article.title} description = {article.description} />
-            )
-        })
-
-    return (
-        <div className = 'page-container'>
-            <h1 className = 'article-results'>Showing {this.props.articles.length} results for: Top Headlines</h1>
-            { this.props.loading ? 
-                <Spinner error = {this.props.error} />
-            :
-            <ul className = 'article-container'>
-                {articlesMapped}
-            </ul>
-            }
-        </div>
-    )
-  }
+        
+        if (this.props.loading) return <Spinner error = {this.props.error} />
+        
+        return (
+            <div className = 'page-container'>
+                <p className = 'banner'>Showing {this.props.articles.length} results for: Top Headlines</p>
+                <ul className = 'article-container'>
+                    {this.renderArticles(this.props.articles)}
+                </ul>
+            </div>
+        )
+    }
+    
 }
 
-const mapStateToProps = (state) => {
-    return {
-      articles: state.articles,
-      loading: state.loading,
-      error: state.error
-    }
-  }
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      loadArticles: (endPoint) => { dispatch(loadArticlesAsync(endPoint))}
-    }
-  }
-  
-  export default connect(mapStateToProps, mapDispatchToProps)(Home);
+const mapStateToProps = state => ({
+    articles: state.articles,
+    loading: state.loading,
+    error: state.error
+})
+
+  export default connect(mapStateToProps, {fetchArticles})(Home);

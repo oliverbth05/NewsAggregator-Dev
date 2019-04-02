@@ -9,25 +9,19 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         
-        case 'LOAD_SOURCES' :
+        case 'FETCH_SOURCES' :
             return {
                 ...state,
                 sources: action.payload
             }
         
-        case 'LOAD_SEARCH_ARTICLES' :
-            return {
-                ...state,
-                searchArticles: action.payload,
-                loading: false
-            }
-        
-        case 'LOAD_ARTICLES' :
+        case 'FETCH_ARTICLES' :
             return {
                 ...state,
                 articles: action.payload,
                 loading: false
             }
+            
         case 'LOADING' :
             return {
                 ...state,
@@ -39,7 +33,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload.toString()
             }
-        
     }
 
     return state
