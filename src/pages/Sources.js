@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { fetchSources } from '../store/actions';
+
 import SourceListItem from '../components/SourceListItem';
 import SourceTile from '../components/SourceTile';
 
@@ -71,46 +69,52 @@ const defaultSources = [
 ]
 
 class Sources extends Component {
-    
+
     state = {
-        filtered: []
+        filtered: [],
+        sources: []
     }
-    
+
+    fetchSources() {
+        axios.get('https://newsapi.org/v2/sources?apiKey=be30cb8ae9f64953b5b256a3c8b4df07')
+            .then(res => {
+                this.setState({
+                    sources: res.data.sources
+                })
+            })
+    }
+
     componentDidMount() {
-        if (this.props.sources.length === 0) {
-            this.props.fetchSources();
+        if (this.state.sources.length === 0) {
+            this.fetchSources();
         }
     }
-    
+
     searchSourceHandler(e) {
-        var arr = this.props.sources.filter((item) => {
-            if (item.name.slice(0, e.target.value.length).toLowerCase() === e.target.value.toLowerCase()) {
-                return true
-            }
-        })
+        var arr = this.state.sources.filter((item) => item.name.slice(0, e.target.value.length).toLowerCase() === e.target.value.toLowerCase())
+
         this.setState({
             filtered: arr
         })
     }
-    
-    renderFilteredList = list => list.map(item => <SourceListItem {...item} />)
-    
+
+    renderFilteredList = list => list.map((item, index) => <SourceListItem {...item} key = {index} />)
+
     render() {
-        return(
-            <div className = 'container p-t-3'>
-                <h3 className = 'font-normal text-center m-b-2'>Popular</h3>
-                    
-                <div className = 'source-grid'>
-                    {defaultSources.map(source => <SourceTile {...source} />)}
-                </div>
-                    
-                <div className = 'm-t-1'>
-                    <span>Find a Source</span>
-                    <input type = 'text' placeholder = 'Search for a source' onChange = {this.searchSourceHandler.bind(this)} className = 'input' />
+        return (
+            <div className='container p-t-3'>
+                <h3 className='font-normal text-center m-b-2'>Popular</h3>
+
+                <div className='source-grid'>
+                    {defaultSources.map((source, index) => <SourceTile {...source} key = {index} />)}
                 </div>
 
-                <ul className = 'source-filter'>
-                    <p className = 'border-bottom' >{this.state.filtered ? this.state.filtered.length + ' result(s)' : null}</p> 
+                <div className='m-t-2 m-t-2'>
+                    <input type='text' placeholder='Search for a source' onChange={this.searchSourceHandler.bind(this)} className='input' />
+                </div>
+
+                <ul className='source-filter'>
+                    <p className='border-bottom' >{this.state.filtered ? this.state.filtered.length + ' result(s)' : null}</p>
                     {this.renderFilteredList(this.state.filtered)}
                 </ul>
             </div>
@@ -118,9 +122,4 @@ class Sources extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    sources: state.sources
-})
-
-
-export default connect(mapStateToProps, {fetchSources})(Sources);
+export default Sources;

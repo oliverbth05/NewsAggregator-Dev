@@ -1,247 +1,240 @@
 .nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 55px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background: linear-gradient(to right, $grey-1, $grey-2);
+  box-shadow: $shadow;
+
+  &__links {
     display: flex;
     align-items: center;
-    justify-content: center;
-    z-index: 5;
-    background: linear-gradient(to right, $grey-1, $grey-2);
-    box-shadow: $shadow;
-    
-    &__links {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-grow: 2;
-        @include respond(tablet) {
-            display: none;
-        }
-        
-        
-        
+    justify-content: space-around;
+    flex-grow: 2;
+    @include respond(tablet) {
+      display: none;
     }
-    
-    &__link {
-        text-decoration: none;
-        transition: all .2s; 
-        border-right: 1px solid $grey-3;
-        padding-top: .5rem;
-        padding-bottom: .5rem;
-        
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        
-        &:hover {
-        }
-        
-        &:last-child {
-            border: none;
-        }
-        
-        &-active {
-            color: $primary;
-        }
+  }
+
+  &__link {
+    text-decoration: none;
+    transition: all 0.2s;
+    border-right: 1px solid $grey-3;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: $text-body;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
+    &:last-child {
+      border: none;
     }
-    
-    &__heading {
-        flex-grow: 1;
+
+    &-active {
+      color: $primary;
     }
+  }
+
+  &__heading {
+    flex-grow: 1;
+  }
 }
 
 .nav__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding-right: 1rem;
+
+  @include respond(tablet) {
+    display: none;
+  }
+
+  input {
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid white;
+    outline: none;
+    transition: all 0.3s;
+    width: 70%;
+    height: 42px;
+    padding-left: 0.5rem;
+    margin-right: 0.3rem;
+    border: 1.5px solid $grey-2;
+
+    &:focus {
+      border-color: $primary;
+    }
+  }
+
+  button {
+    background: $primary;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.2s;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-grow: 1;
-    padding-right: 1rem;
-    
-    @include respond(tablet) {
-        display: none;
+    justify-content: center;
+    padding: 0.7rem;
+    color: white;
+
+    &:hover {
+      background: $primary-darker;
     }
-    
-    input {
-        height: 30px;
-        border-radius: 5px;
-        border: 2px solid white ;
-        outline: none;
-        transition: all .3s;
-        width: 70%;
-        height: 42px;
-        padding-left: .5rem;
-        margin-right: .3rem;
-        border: 1.5px solid $grey-2;
-        
-        &:focus {
-            border-color: $primary;
-        }
-    } 
-    
-    button {
-        background: $primary;
-        border-radius: 5px;
-        border: none;
-        transition: all .2s;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: .7rem;
-        color: white;
-        
-        &:hover {
-            background: $primary-darker;
-        }
-    }
+  }
 }
 
 .mobile-btn {
-    background: inherit;
-    outline: none;
-    color: rgb(50, 50, 50);
-    border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 24px;
-    border-radius: 24px;
-    position: fixed;
-    right: 5%;
-    top: 22px;
-    display: none;
-    cursor: pointer;
-    
-    &:hover {
-        font-size: 25px;
-    }
+  transition: all .2s;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: $grey-3;
+  border: 2px solid $grey-4;
+  color: $white;
+  border: none;
+  width: 34px;
+  height: 34px;
+  font-size: 17px;
+  border-radius: 10px;
+  position: fixed;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  outline: none;
+
+  @include respond(tablet) {
+    display: flex;
+  }
+
+  &:hover {
+    background: $grey-4;
+    color: $primary;
+  }
 }
 
 .nav-drawer {
-    transition: all .3s;
-    transition-timing-function: ease-in-out;
-    top: 65px;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    background: $grey-1;
-    z-index: -4;
-    
-    &-show {
-        opacity: 1;
-        display: block;
-    }
-    
-    &-hide {
-        opacity: 0;
-        transform: translateX(-1150px);
-        display: none;
-        z-index: -3;
-    }
+  transition: all 0.3s;
+  transition-timing-function: ease-in-out;
+  top: 55px;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: $grey-1;
+  z-index: -4;
 
+  &-show {
+    opacity: 1;
+    display: block;
+  }
+
+  &-hide {
+    opacity: 0;
+    transform: translateX(-1150px);
+    display: none;
+    z-index: -3;
+  }
 }
 
 .search-container-sm {
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-    
-    input {
-        height: 30px;
-        width: 100%;
-        color: rgb(80, 80, 80);
-        padding: 10px;
-        font-size: 17px;
-        border-radius: 5px;
-        border: 2px solid rgb(220, 220, 220) ;
-        outline: none;
-        margin-bottom: 10px;
-        transition: all .2s;
-        text-align: center;
-        
-        &:focus{
-            border: 2px solid rgb(51, 153, 255);
-        }
-        
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+
+  input {
+    height: 30px;
+    width: 100%;
+    color: rgb(80, 80, 80);
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 2px solid rgb(220, 220, 220);
+    outline: none;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+    text-align: center;
+
+    &:focus {
+      border: 2px solid rgb(51, 153, 255);
     }
-    
-    button {
-        display: block;
-        outline: none;
-        border: 1px solid rgb(50, 50, 50);
-        background: inherit;
-        height:35px;
-        width: 100%;
-        border-radius: 10px;
-        font-size: 20px;
-        color: rgb(50, 50, 50);
-        transition: all .2s;
-        cursor: pointer;
-        
-        &:hover {
-            color: white;
-            background: rgb(51, 153, 255);
-            border-color: rgb(51, 153, 255);
-        }
+  }
+
+  button {
+    display: block;
+    outline: none;
+    border: 1px solid rgb(50, 50, 50);
+    background: inherit;
+    height: 35px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 20px;
+    color: rgb(50, 50, 50);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+      background: rgb(51, 153, 255);
+      border-color: rgb(51, 153, 255);
     }
+  }
 }
 
-
 .drawer-links {
-    display: block;
-    padding: 20px;
-    max-width: 85%;
-    margin: auto;
-    border-radius: 4px;
-    
+  display: block;
+  padding: 20px;
+  max-width: 85%;
+  margin: auto;
+  border-radius: 4px;
 }
 
 .drawer-link {
-     border-radius: 4px;
-    color: rgb(80, 80, 80);
-    text-decoration: none;
-    display: block;
-    padding: 20px;
-    border: 1px solid rgb(50, 50, 50);
-    text-align: center;
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+  border-radius: 4px;
+  color: rgb(80, 80, 80);
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  border: 1px solid rgb(50, 50, 50);
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .drawer-link:hover {
-    background: rgb(50, 50, 50);
-    color: white;
-
+  background: rgb(50, 50, 50);
+  color: white;
 }
 
 @media only screen and (max-width: 1050px) {
-    .heading {
-        font-size: 15px;
-    }
-    .nav {
-        grid-template-columns: 1fr;
-        
-    }
+  .heading {
+    font-size: 15px;
+  }
+  .nav {
+    grid-template-columns: 1fr;
+  }
 
-    .nav-link {
-        display: none;
-    }
+  .nav-link {
+    display: none;
+  }
 
-    .search-container{
-        display: none
-    }
+  .search-container {
+    display: none;
+  }
 
-    .nav-heading {
-        padding-top:20px;
-        font-size: 20px;
-    }
+  .nav-heading {
+    padding-top: 20px;
+    font-size: 20px;
+  }
 
-    .mobile-btn {
-        display: block;
-    }
-
-    .nav-drawer {
-        display: block;
-    }
+  .nav-drawer {
+    display: block;
+  }
 }

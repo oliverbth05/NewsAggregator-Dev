@@ -1,12 +1,24 @@
 .container {
-    max-width: 1000px;
-    margin: auto;
+  max-width: 1000px;
+  margin: auto;
+  animation: fadeIn;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.container-fluid {
+  max-width: 100%;
+  animation: fadeIn;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
 }
 
 .container-flex-center {
-    min-height: 93vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }

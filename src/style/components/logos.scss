@@ -1,0 +1,27 @@
+.logo {
+  margin: 1rem;
+  box-shadow: $shadow;
+  padding: 2rem;
+  min-width: 10rem;
+  border-radius: 5px;
+  flex-grow: 1;
+  background: $grey-1;
+
+  img {
+    max-height: 3rem;
+    margin: auto;
+    display: block;
+  }
+
+  p {
+    padding-top: 1rem;
+    text-align: center;
+  }
+}
+
+.logo-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}

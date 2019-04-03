@@ -4,45 +4,34 @@
 // 1200-1800px: Desktop
 // 1800+ : Large Monitors
 @mixin respond($breakpoint) {
-    @if $breakpoint==phone {
-        @media (max-width: 26.5625em) {
-            //425px
-            @content
-        }
+  @if $breakpoint==phone {
+    @media (max-width: 26.5625em) {
+      //425px
+      @content;
     }
-    ;
-
-    @if $breakpoint==tablet {
-        @media (max-width: 48em) {
-            //768px
-            @content
-        }
+  }
+  @if $breakpoint==tablet {
+    @media (max-width: 48em) {
+      //768px
+      @content;
     }
-    ;
-
-    @if $breakpoint==laptop {
-        @media (max-width: 64em) {
-            // 1024px
-            @content
-        }
+  }
+  @if $breakpoint==laptop {
+    @media (max-width: 64em) {
+      // 1024px
+      @content;
     }
-    ;
-
-    @if $breakpoint==desktop {
-        @media (max-width: 90em) {
-            // 1440px
-            @content
-        }
+  }
+  @if $breakpoint==desktop {
+    @media (max-width: 90em) {
+      // 1440px
+      @content;
     }
-    ;
-
-    @if $breakpoint==huge {
-        @media (max-width: 160em) {
-            //2560
-            @content
-        }
+  }
+  @if $breakpoint==huge {
+    @media (max-width: 160em) {
+      //2560
+      @content;
     }
-    ;
-
-
+  }
 }

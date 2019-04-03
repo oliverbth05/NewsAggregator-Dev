@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+
 
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
@@ -55,7 +55,6 @@ class App extends Component {
 
   componentWillMount() {
     window.addEventListener('resize', this.updateWidth.bind(this))
-    
   }
   
   render() {
@@ -79,18 +78,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    articles: state.articles,
-    loading: state.loading,
-    redirect: state.redirect,
-    searchKeyword: state.searchKeyword
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
